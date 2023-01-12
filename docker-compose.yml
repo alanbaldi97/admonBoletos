@@ -2,19 +2,19 @@ version: "3"
 
 services:
   flask_app:
-    container_name: "admon_boletos-web"
+    container_name: "admon_boletos"
     build: .
     ports:
       - "5000:5000"
     volumes:
       - .:/code
-    links:
-      - flask_db
-  flask_db:
-    container_name: "database"
-    image: mysql
+  db:
+    image: mysql:8.0.31
+    restart: always
+    container_name: flask_app_db
+    ports:
+      - "32000:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: eventosdb
-    ports:
-      - "3306:3306"
+      MYSQL_DATABASE: eventos_db
+    
