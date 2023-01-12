@@ -7,12 +7,12 @@ eventos = Blueprint("eventos", __name__)
 
 @eventos.route('/')
 def index():
-    boletos = Evento.query.all()
+    Evento = Evento.query.all()
     return render_template('index.html', eventos=eventos)
 
 
 @eventos.route('/new', methods=['POST'])
-def add_contact():
+def eventoNuevo():
     if request.method == 'POST':
 
         # Datos del form
