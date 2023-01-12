@@ -6,7 +6,7 @@ class Boleto(db.Model):
     nombre = db.Column(db.String(100))
     fecha_inicio = db.Column(db.DateTime)
     fecha_fin = db.Column(db.DateTime)
-    numTotal_boletos = db.Column(db.Interger(1,300))
+    numTotal_boletos = db.Column(db.Integer)
 
     def __init__(self, nombre, fecha_inicio, fecha_fin, numTotal_boletos):
         self.nombre = nombre
