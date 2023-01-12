@@ -11,6 +11,9 @@ build:
 run:
 	docker-compose up
 
+stop: 
+	docker-compose stop
+
 frontend-shell:
 	docker-compose run frontend \
 	  sh

@@ -7,7 +7,7 @@ eventos = Blueprint("eventos", __name__)
 
 @eventos.route('/')
 def index():
-    Evento = Evento.query.all()
+    eventos = Evento.query.all()
     return render_template('index.html', eventos=eventos)
 
 
@@ -35,7 +35,7 @@ def eventoNuevo():
 @eventos.route("/update/<string:id>", methods=["GET", "POST"])
 def update(id):
 
-    Evento = Evento.query.get(id)
+    eventos = Evento.query.get(id)
 
     if request.method == "POST":
         Evento.nombre = request.form['nombre']
@@ -53,7 +53,7 @@ def update(id):
 
 @eventos.route("/delete/<id>", methods=["GET"])
 def delete(id):
-    Evento = Evento.query.get(id)
+    eventos = Evento.query.get(id)
     db.session.delete(Evento)
     db.session.commit()
 

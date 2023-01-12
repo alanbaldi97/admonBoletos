@@ -2,8 +2,8 @@ FROM python:3.8.3-alpine3.12
 RUN apk add --no-cache python3-dev \
     && pip3 install --upgrade pip
 
-COPY . /usr/src/app
-WORKDIR /usr/src/app
+COPY . /flask_app
+WORKDIR /flask_app
 
 RUN chmod -R o+rX .
 
