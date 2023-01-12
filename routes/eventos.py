@@ -33,7 +33,7 @@ def eventoNuevo():
 
 
 @eventos.route("/update/<string:id>", methods=["GET", "POST"])
-def update(id):
+def actualizarEvento(id):
 
     eventos = Evento.query.get(id)
 
@@ -52,7 +52,7 @@ def update(id):
 
 
 @eventos.route("/delete/<id>", methods=["GET"])
-def delete(id):
+def eliminarEvento(id):
     eventos = Evento.query.get(id)
     db.session.delete(Evento)
     db.session.commit()
@@ -62,15 +62,15 @@ def delete(id):
     return redirect(url_for('eventos.index'))
 
 @eventos.route("/vender_boleto")
-def about():
+def venderBoleto():
     return render_template("")
 
 @eventos.route("/canjear_boleto")
-def about():
+def canjearBoleto():
     return render_template("")
 
 @eventos.route("/detalle_evento")
-def about():
+def detalleEvento():
     return render_template("")
 
 
