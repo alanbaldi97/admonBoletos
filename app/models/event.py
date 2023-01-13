@@ -15,7 +15,7 @@ class Event(Model):
         return ticket_sold.count()
 
     def has_sold_out_tickets(self) -> bool:
-        return self.tickets_sold == self.available_tickets
+        return self.tickets_sold < self.available_tickets
 
     def has_sold_tickets(self) -> bool:
         return self.tickets_sold > 0
